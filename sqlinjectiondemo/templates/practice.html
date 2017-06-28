@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>SQL Injection</title>
+  </head>
+
+  <body>
+    <b>Goal:</b> <br/>
+    Your job is to find Monty Python's Holy Grail. We know he's put the Grail in his safe deposit box, but we need a pin to access it. <br/> Don't worry. He's entrusted it to a bank with incompetent programmers. I'm sure you can find a way to break into the bank's system and get the pin. <br/>
+    Maybe there's a way to get his pin using the form below. Good luck! <br/> <hr>
+    <form name="userform" action="/practice" method="POST">
+
+      <div class="container">
+	<label><b>Username: </b></label>
+	<input type="text" placeholder="Enter Username" name="username" required />
+	<br/>
+	<input type="submit" value="Get information" />
+
+	<br/>
+	<br/>
+	<u>User:</u> <br/>
+	{{ user }} <br/> <br/>
+
+	<u>Bank Balance:</u> <br/>
+	${{ balance }} <br/>
+	<br/>
+      </div>
+    </form>
+    <form name="pinform" action="/practice" method="POST">
+
+      <hr>
+
+      <label><b>Pin: </b></label>
+      <input type="text" placeholder="Enter Pin" name="pin" />
+      <br/>
+      <input type="submit" value="Enter pin" /> <br/> <br/>
+
+      <u>Safe Deposit Box:</u> <br/>
+      {% if super_secret %}
+      Holy Grail!!!
+      <script>
+	alert("You got the HOLY GRAIL! Good job!");
+      </script>
+      {% else %}
+      Empty
+      {% endif %}
+    </form>
+
+    <hr/>
+
+    <u>Hint</u> - The SQL statement is:
+    <br/>
+    'SELECT * FROM users WHERE username=%s' % (username)
+    <br/>
+    You may want to bypass the username check using two single/double quotes and then writing your SQL statement.
+
+    <br/> <br/>
+    <script>
+      function showAnswer() {
+      alert("\"\" OR 1=1; --");
+      }
+    </script>
+
+    <button onclick="showAnswer()">Show Answer</button>
+
+
+  </body>
+</html>

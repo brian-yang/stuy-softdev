@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+    <script src="../static/js/bootstrap.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <title>SQL Injection</title>
+      <style>
+        <style>
+  body {
+      position: relative;
+  }</style>
+  </head>
+
+  <body style="font-size: 150%;      margin-left: 2%;margin-right: 2%;">
+    <div data-spy="scroll" data-target=".navbar" data-offset="50">
+
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+	<ul class="nav navbar-nav">
+	  <li><a href="#section1">What is an SQL Injection?</a></li>
+	  <li><a href="#section2">What SQL Injections Can Do</a></li>
+	  <li><a href="#section3">Common Exploits</a></li>
+	  <li><a href="#section4">Examples</a></li>
+	  <li><a href="#section5">Solution</a></li>
+          </ul>
+      </nav>
+
+
+      <div id="section1">
+	<h1 style="padding-top:3%;">What is an SQL Injection?</h1>
+	<ul>
+  <li>An SQL injection is an attack using SQL queries to expose valuable information or damage a database server<br></li>
+  <li>Database management systems like MYSQL and SQLite are vulnerable to SQL injections</li>
+
+</ul>
+	  
+
+      </div>
+          <div id="section2">
+	<h1>What SQL Injections Can Do</h1>
+    	<ul>
+  <li>An attacker can use SQL Injection to bypass authentication or even impersonate specific users.</li>
+  <li>Since web applications use SQL to alter data within a database, an attacker could use SQL Injection to alter data stored in a database. </li>
+            <li>SQL is used to delete records from a database. An attacker could use an SQL Injection vulnerability to delete data from a database. Even if an appropriate backup strategy is employed, deletion of data could affect an application’s availability until the database is restored.</li>
+
+</ul>
+      </div>
+        
+              </div>
+          <div id="section3">
+	<h1>Common Exploits</h1>
+    	<ul>
+            <li>Here is a sample of an SQL query that may be used to get bank data from the input of a user: <text style="font-family:'courier new'">String accountBalanceQuery =  "SELECT accountNumber, balance FROM accounts WHERE account_owner_id = "  + request.getParameter("user_id");</text>
+</li>
+  <li>Since this code offers no protection from user input, if a malicious hacker were to input “0 or 1=1” the statement would return true no matter what.</li>
+            <li>This simple one-line hack would give access to an entire database of account numbers and corresponding balances!!!</li>
+            <li>A hacker will commonly include a /* or -- at the end of the input as well in attempt to initiate a multi-line comment, and essentially disable all code following the sql query.</li>
+
+</ul>
+      </div>
+          
+          <div id="section4">
+	<h1>Examples</h1>
+    	<ul>
+            <li>January 2006: Russian Hackers stole credit card information using the Rhode Island government’s website.</li>
+<li>August 2009: 3 hackers stole 130 million credit card numbers using SQLi.</li>
+<li>October 2012: A hacker group published the records of thousands of students from 53 universities that they obtained via. SQL Injection.</li>
+<li>November 2013: 71 Chinese government databases were compromised in an attack on the Chinese Chamber of International Commerce and data gained from the attack were released.</li>
+<li>March 2014: Johns Hopkins’ BioMed engineering servers were attacked and information about 900 students/staff was released. </li>
+
+
+</ul>
+      </div>
+      
+          <div id="section5">
+	<h1>Solution</h1>
+    	<ul>
+            <li>In order to protect yourself from this kind of manipulation it is recommended that you use parameterized statements.</li>
+<li>In other words, avoid embedding user input inside statements, since you do not know what they contain.</li>
+<li>Alternate methods include checking user input for special characters or SQL queries before adding it to the database (Quotes and semicolons especially)</li>
+            <li>In the previous case, a parametrized version that would raise an error (SQLException) would be:<br><pre style ="font-family:'courier new'"> String accountBalanceQuery = 
+  "SELECT accountNumber, balance FROM accounts WHERE account_owner_id = ?";
+try {
+    PreparedStatement statement = connection.prepareStatement(accountBalanceQuery);
+    statement.setInt(1, request.getParameter("user_id")); 
+    ResultSet rs = statement.executeQuery();
+    while (rs.next()) {
+        page.addTableRow(rs.getInt("accountNumber"), rs.getFloat("balance"));
+    }
+} catch (SQLException e) { System.out.println(“Stop it!”); }</pre></li>
+
+
+
+</ul>
+      </div>
+      <form action = "/practice" method="GET" style="margin-bottom:2%; font-size:170%; font-weight:bold;"><center><button style="" type="submit">Click to Test Out Your SQL Injection Skills!</button></center></form>
+
+</body>
+</html>
