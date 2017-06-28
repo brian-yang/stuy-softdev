@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block head1 %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+
+{% endblock %}
+
+
+
+{% block body %}
+<br>
+<center>
+  <svg id="vimage" height="350" width="850" style="border:1px solid;" xmlns="http://www.w3.org/2000/svg"> </svg>
+</center>
+
+
+<center>
+  <br>
+  <h6> Click A Room to Reserve It! </h6>
+  <div id="roomButtons"> <form id="whichRoom" method="get">
+  {% if session.username and not session.master %}
+    <div class="rooms1">
+  {% endif %}
+
+      <button type="submit" name="room" value="303" class="success button">303</button>
+      <button type="submit" name="room" value="305" class="success button">305</button>
+      <button type="submit" name="room" value="313" class="success button">313</button>
+      <button type="submit" name="room" value="315" class="success button">315</button>
+      <button type="submit" name="room" value="325" class="success button">325</button>
+      <button type="submit" name="room" value="327" class="success button">327</button>
+      <button type="submit" name="room" value="329" class="success button">329</button>
+      <button type="submit" name="room" value="331" class="success button">331</button>
+      <button type="submit" name="room" value="333" class="success button">333</button>
+      <button type="submit" name="room" value="335" class="success button">335</button>
+      <button type="submit" name="room" value="339" class="success button">339</button>
+      <button type="submit" name="room" value="351" class="success button">351</button>
+        {% if session.username and not session.master %}
+      </div>
+      {% endif %}
+
+  </div> </form>
+  {% block roomblock %}
+  {% endblock %}
+</center>
+<br>
+{% endblock %}
+
+
+
+{% block bottom %}
+
+<script type="text/javascript" src="/static/js/map3.js"></script>
+{% block script_block %}
+{% endblock %}
+
+
+{% endblock %}

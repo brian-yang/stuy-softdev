@@ -1,0 +1,37 @@
+felixR -- 2017-03-29 12:00
+-Made the basic html file and framework for the project,
+
+brianY -- 2017-03-29 3:19 PM
+-Created the line graph axes
+
+brianY -- 2017-03-29 5:44 PM
+-Flipped the line graphs upside down
+
+brianY -- 2017-03-30 11:47 PM
+-Tested creating line graphs with d3
+
+brianY -- 2017-03-31 6:56 PM
+-Tweak line graph values
+
+felixR -- 2017-04-01 7:43 PM
+-Got the new map to work
+-The new html file is now dots.html, no longer index.html
+-Dots.html now uses the new map that supports dots and color change
+
+brianY -- 2017-04-01 10:06 PM
+-Display both line graphs on the main page
+
+brianY -- 2017-04-01 11:32 PM
+-Finish line graphs
+
+kathyL -- 2017-04-04 12:11 AM
+-Fixed maps, added circles to represent billionaires
+
+kathyL -- 2017-04-04 12:25 PM
+-added countries from felix's parsing, added color scheme
+
+felixR -- 2017-04-04 3:48 PM
+-worked on bar garphs
+
+kathyL -- 2017-04-04 11:30 PM
+--finished putting the data in an sql, much faster queue time

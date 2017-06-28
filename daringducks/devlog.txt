@@ -1,0 +1,182 @@
+ENTRY FORMAT:
+firstL -- TIMESTAMP
+<CHANGES>
+
+brianY -- 2017-01-07 7:17 PM
+- Added file templates
+
+karolR -- 2017-01-08 10:11 PM
+- wrote login and register methods
+- added login and register support to app.py
+- wrote some crude html files to support login and register, no bootstrap
+- added basic error message flashing
+- added password hashing
+- added basic database creation and management functions
+
+amyX -- 2017-01-08 11:22 PM
+- got template inheritance to work
+- navbar now corresponds to logged in/logged out
+- created class.html, home.html
+- changed home route in app.py
+- added class route to app.py
+
+amyX -- 2017-01-09 12:17 AM
+- fixed logout 404 error
+- created profile.html to change pass
+- added styling changes to class
+
+karolR -- 2017-01-09 12:11 PM
+- implemented password changing and messsage flashing into app.py
+- added password change functions to authenticate.py
+- added confirm password field
+- changed redirection for failed logins
+- added getIDOfUser function in authenticate.py
+
+brianY -- 2017-01-09 12:18 PM
+- Added other tables to database
+
+`shaeq`A -- 2017-01-09 12:19 PM
+- added radio buttons to authentication form (allow user to creat teacher vs student account)
+
+brianY -- 2017-01-10
+- Allowed users to choose wwhether they are a student or teacher
+
+karolR -- 2017-01-10 12:35 PM
+- unified login and register routes into one route through auth
+- added all required tables to database
+
+amyX -- 2017-01-10 10:19 PM
+- implemented to-do list
+	- created todo.js
+	- added the todo html code to home.html
+- made changes to base.html (put content block within the home tag)
+- added the html framework for showing the done to-do tasks but did not finish javascript portion
+
+karolR -- 2017-01-11 8:55 PM
+- blank passwords are no longer allowed
+- started working on class implementation
+  	- added class_name field to database
+	- worked on class functions
+- created database.py that contains all database functions except authentication-related functions
+- moved database administrative functions to database.py
+
+karolR -- 2017-01-12 12:08 AM
+- added getIDOfUser function
+- wrote several class and todo related database functions
+- added test route in app.py
+- added database table for todo
+- reset database to allow for modification of existing tables to be applied
+
+brianY -- 2017-01-12 12:30 PM
+- Started template for assignments
+
+karolR -- 2017-01-13 12:32 PM
+- wrote more class and todo related database methods, fixed bugs in older methods
+
+brianY -- 2017-01-17 12:06 PM
+- Worked on class page
+- Worked on assignment page
+
+amyX -- 2017-01-17 12:21 PM
+- Added modal for adding classes
+- Added additional lines of CSS to style modal and home.html
+- Created and coded addclass.js
+- Created additional flask blocks in base.html to load js and jquery at the end
+
+amyX -- 2017-01-17 12:31 PM
+- Added styling to navbar
+
+karolR -- 2017-01-17 12:33 PM
+- wrote removeClass function
+- worked on bugs in adding and removing user to and from classes
+
+karolR -- 2017-01-18 12:33 PM
+- can now add users to classes
+
+brianY -- 2017-01-18 3:45 PM
+- Worked on implementing classes in app.py
+
+brianY -- 2017-01-19 12:33 PM
+- Allow users to create new classes
+
+karolR -- 2017-01-19 12:34 PM
+- finished getEnrolledStudents() function, returns comma separated string
+- started working on creating tasks and submissions in database
+
+karolR -- 2017-01-19 12:17 PM
+- added getAccountType function
+
+brianY -- 2017-01-20 12:21PM
+- Fix display error with classes
+
+amyX -- 2017-01-20 12:27 PM
+- Moved login to navbar dropdown
+- Removed normal login <li> from navbar and replaced with register
+
+ahmedS -- 2017-1-22 1:46 AM
+- added functionalty todo.js
+- ajax GET to remove and add data
+
+brianY -- 2017-01-25 12:46 AM
+- Checked whether or not the user is a student or teacher
+
+brianY -- 2017-01-25 2:40 PM
+- Worked on allowing teachers to create assignments
+
+karolR -- 2017-01-25 3:35 PM
+- fixed function that enrolls student in a class
+- wrote function that returns all of the classes a student is enrolled in
+
+brianY -- 2017-01-25 3:41 PM
+- Fix bugs with viewing created assignments
+
+brianY -- 2017-01-25 4:02 PM
+- Allow students to join classes and see assignments
+
+amyX -- 2017-01-25 5:33 PM
+- Improvements to navbar login
+- Removed social media stuff
+- Fixed 400 error with data transmission from navbar's login form to app.py
+
+amyX -- 2017-01-25 7:25 PM
+- Fixed problem with login dropdown not showing on register
+- Fixed problem with li active not working on register
+
+amyX -- 2017-01-25 8:30 PM
+- Finished coding submit assignments. Submitted assignments are now stored in the databases
+- Implemented code to check whether an assignment has been submitted before displaying submit textbox
+
+karolR -- 2017-01-25 8:40 PM
+- Converted database to ? formatting, no longer breaks upon using a single quote
+
+brianY -- 2017-01-25 8:47 PM
+- Add calculator
+
+amyX -- 2017-01-25 9:18 PM
+- Added route for calendar in app.py
+- Created calendar template
+- Adjusted navbar to fit new change
+
+karolR -- 2017-01-25 9:41 PM
+- wrote getAllSubmissionsTeacher() that displays all submissions for a particular assignment
+- wrote getSubmissionData() that gets content of submission
+- Fixed homepage rendering after submitting submission for class. Previously did not display classes or form for class creation/joining.
+
+amyX -- 2017-01-25 10:53 PM
+- used getAllSubmissionsTeacher() to get an array which was converted into a dict (username: submission)
+- wrote for loop and html in assignments.html for teachers to see all student submissions for one task they've assigned
+
+amyX -- 2017-01-25 11:02 PM
+- used getSubmissionData() to generate a student's assignment for a particular task
+- display for student who've submitted an assignment now works
+
+karolR -- 2017-01-25 11:39 PM
+- wrote setGrade() and getGrade() for submission grade editing
+- fixed error in app.py when trying to submit assignment
+
+karolR -- 2017-01-26 12:02 AM
+- getSubmissionData() now returns submission_id, also cleaned up date return format
+
+karolR -- 2017-01-26 01:04 AM
+- added back buttons to return to class page from assignment page
+- wrote design_changes.txt, reflects notable deviations from DESIGN.pdf

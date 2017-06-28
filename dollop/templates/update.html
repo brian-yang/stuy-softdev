@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" media="screen" href="/static/bootstrap.min.css">
+    <script>
+      function isNotEmpty() {
+      var update = document.forms["update_story"]["update"].value;
+      if (update == null || update == "") {
+      alert("Please add an update.");
+      return false;
+      }
+      }
+    </script>
+  </head>
+  <body>
+
+    <!--NAV BAR-->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">STORYTeller</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+            <li><a href="/new/">Add Stories</a></li>
+            <li><a href="/browse/">Browse Stories</a></li>
+          </ul>
+
+          <form class="nav navbar-nav navbar-right">
+          <li><a href = "/logout/">Logout</a></li>
+          </form>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!--NAV BAR-->
+    <center>
+    <h2>Please type your update to the story down below.</h2>
+    <p>The latest update was: <br/> {{ line }}</p>
+    <br>
+    <form name="update_story" action="/update/" method="POST" onsubmit="return isNotEmpty()">
+      <input type="textbox" name="update" placeholder="Update..." maxlength="140" style="height: 50px; width: 500px;" ><br/><br/>
+      <input type="submit" value="submit">
+    </form>
+   </center>
+  </body>
+
+</html>

@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block head1 %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+
+{% block style %}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+/* Month header */
+.month {
+width: 690px;
+height: 125px;
+padding: 25px 25px;
+background: #1abc9c;
+}
+
+/* Month list */
+.month ul {
+margin: 0;
+padding: 0;
+}
+
+.month ul li {
+color: white;
+font-size: 30px;
+text-transform: uppercase;
+letter-spacing: 10px;
+text-align: center;
+}
+
+.month .y{
+margin-top: 10px;
+font-size: 18px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+float: left;
+padding-top: 10px;
+cursor: pointer;
+}
+
+/* Next button */
+.month .next {
+float: right;
+padding-top: 10px;
+cursor: pointer;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+width: 690px;
+height: 63px;
+margin: 0;
+text-align:left;
+padding: 10px 0;
+background-color:#ddd;
+}
+
+.weekdays li {
+display: inline-block;
+width: 11%;
+color: #666;
+font-size: 20px;
+text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+width: 690px;
+height: 100%;
+background: #eee;
+text-align:left;
+margin: 0;
+-webkit-padding-start: 0px; /* overrides user agent stylesheet */
+}
+
+.days li {
+list-style-type: none;
+display: inline-block;
+width: 11%;
+height: 15%;
+text-align: center;
+padding-top: 20px;
+margin-bottom: 20px;
+font-size: 20px;
+color:#777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+padding-top: 19px;
+padding-left: 30px;
+padding-right: 30px;
+padding-bottom: 19px;
+background: #1abc9c;
+color: white;
+}
+
+/* open */
+.open {
+color:#2ba6cb;
+}
+
+/* weekend */
+.closed {
+color: #D63E3E;
+margin-bottom: 0;
+}
+
+{% endblock %}
+
+{% block body %}
+<!-- <br>
+     <center>
+       <h1 id="month"> </h1>
+     </center>
+     <table id="cal">
+       <tr id = "1stWeek"> </tr>
+       <tr id = "2ndWeek"> </tr>
+       <tr id = "3rdWeek"> </tr>
+       <tr id = "4thWeek"> </tr>
+       <tr id = "5thWeek"> </tr> 
+     </table> -->
+<br>
+<center>
+  {% with message = get_flashed_messages() %}
+  {% if message %}
+  <p style="font-size:20px;">{{ message[0] }}</p>
+  {% endif %}
+  {% endwith %}
+</center>
+<h5><center> {{action}} </h5> </center>
+<br>
+<center>
+  <div class = "container">
+    <div class="month">
+      <ul>
+	<li class="prev">&#10094;</li>
+	<li class="next">&#10095;</li>
+	<li class="m"></li>
+	<li class="y"></li>
+      </ul>
+    </div>
+
+    <ul class="weekdays">
+    </ul>
+
+    <ul class="days">
+    </ul>
+</center>
+</div>
+<br> <br>
+
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/calendar.js"></script>
+{% endblock %}

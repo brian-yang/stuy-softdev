@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block active2 %}active{% endblock %}
+
+{% block content %}
+
+{% if session.username %}
+
+<center>
+
+  <h1>{{class_name}}</h1>
+
+  {% if user_type == 1 %}
+
+  <!-- <h3>Create Assignment</h3> -->
+  <button type="button" class="btn btn-primary btn-lg" id="myBtn">Create Assignment</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+	<div class="modal-header" style="padding:35px 50px;">
+	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+	  <h4>Create Assignment</h4>
+	</div>
+
+	<div class="modal-body" style="padding:40px 50px;">
+	  <form action="/class/" method="POST">
+	    <div class="form-group">
+	      <label for="title">Assignment Description:</label>
+	      {% set description_name = class_name + "-description" %}
+	      <textarea class="form-control" rows="10" cols="50" name="description" placeholder="Enter description..." required="true"></textarea>
+	      <input type="hidden" name="class" value="{{class_name}}">
+
+	    </div>
+	    <input type="submit" value="Add" class="btn btn-success btn-block btn-clr">
+	  </form>
+	</div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- Modal -->
+  {% endif %}
+
+  <br/>
+  <br/>
+
+  <form action="/assignment/" method="POST">
+    {% for task_id in tasks.keys() %}
+    <button type="submit" name="assignment" class="btn btn-success" value="{{ task_id }}">{{ tasks[task_id] }}</button>
+    <input type="hidden" name="class" value="{{class_name}}"> <br/>
+    <br/>
+    {% endfor %}
+  </form>
+
+</center>
+
+{% endif %}
+{% endblock %}
+
+{% block script %}
+<script src="../static/js/jquery-3.1.1.min.js"></script>
+<script src="../static/js/modal.js"></script>
+{% endblock %}

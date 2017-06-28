@@ -1,0 +1,55 @@
+/* transform, outline-style, list-style-type */
+
+body {
+    background-color: lightgray;
+    font-family: consolas, sans-serif;
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+}
+
+.container {
+    background-color: skyblue;
+    margin: 0 150px;
+    position: relative;
+    padding: 10px;
+    height: 100%;
+}
+
+.title {
+    text-align: center;
+    text-decoration: underline;
+}
+.filler {
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    border-radius: 10px;
+    outline-style: double;
+    outline-color: red;
+}
+
+.knights:hover {
+    transform: rotate(360deg) scale(2);
+    transition: 3s;
+}
+
+#nis-title {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 2em;
+    text-align: center;
+}
+
+.nis {
+    list-style-type: armenian;
+}
+
+#selected {
+    font-weight: bold;
+    background-color: pink;
+}
+
+#selected:hover {
+    transform: scale(1.25);
+    transition: 0.5s;
+}

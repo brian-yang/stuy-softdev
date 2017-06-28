@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <center>
+      <b><h1>{{ logged_in }}</h1></b>
+      {% if "Success" in logged_in %}
+      <a href="/">Welcome Page</a>
+      {% else %}
+      <a href="/">Login/Register Page</a>
+      {% endif %}
+    </center>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    height: 100%;
+    background-color: lightgray;
+    margin-top: 1%;
+    text-align: justify;
+    font-family: "Times New Roman", sans-serif;
+}
+
+h3 {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+
+p {
+    position: relative;
+    padding-top: 5px;
+    font-size: 2em;
+    font-family: "Roboto", sans-serif;
+    text-shadow: 1px 1px gray;
+}
+
+li {
+    color: purple;
+    position: static;
+    margin-top: auto;
+    text-align: left;
+    font-size: 2em;
+}
+
+a {
+    color: navy;
+    text-transform: lowercase;
+    font-size: 2em;
+    font-style: italic;
+    font-family: "monospace", sans-serif;
+}
+/* ======================================= */
+/* Classes and ids */
+/* ======================================= */
+.extreme {
+    width: 75%;
+    margin: 0 auto;
+    border-style: solid;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#head1 {
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navzone {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color: navy;
+    font-family: "Times New Roman", sans-serif;
+}
+
+#tehlulz {
+    text-align: center;
+    text-shadow: 2px 2px skyblue;
+    border-style: double;
+    border-top: 10px;
+    border-bottom: 10px;
+}
+
+.content {
+    border-style: dashed;
+    border-radius: 10px;
+    width: 70%;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.prose {
+    margin: 0 auto;
+    text-decoration: underline;
+    text-align: left;
+    display: block;
+    font-size: large;
+}

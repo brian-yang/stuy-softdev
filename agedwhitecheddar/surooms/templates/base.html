@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SU Room Reservations</title>
+    <link rel="stylesheet" href="/static/foundation_custom/css/foundation.css">
+    <link rel="stylesheet" href="/static/foundation_custom/css/app.css">
+
+    {% block head1 %}
+    {% endblock %}
+
+    <style>
+      .top-bar{
+      background-color:#1A1B41;
+      color:#FFFFFF;
+      }
+      .callout {
+      background-color:#C2E7DA;
+      margin-left:25%;
+      margin-right:25%;
+      margin-top:1%;
+      margin-bottom:1%;
+      font-size:16px;
+      border-radius: 10px;
+      }
+      #roomButtons {
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 10px;
+      width:600px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      }
+      table {
+      margin: 10px;
+      font-size: 16px;
+      padding-left:80px;
+      padding-right: 80px;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      }
+      button{
+      background-color:#A40E4C;
+      }
+      h5{
+      font-size:30px;
+      }
+      .top-bar-left{
+      background-color:#1A1B41;
+      }
+      .data-dropdown-menu{
+      background-color:#1A1B41;
+      }
+      .menu-text{
+      background-color:#1A1B41;
+      color:#6290C3;
+      font-size:20px;
+      }
+      .abc{
+      background-color:#1A1B41;
+      font-size:18px;
+      }
+      @font-face {
+      font-family: Arial, Helvetica, sans-serif;
+      }
+      a {
+      color:#CCE6F4;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      }
+      h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: 450px 320px;
+      background-repeat: repeat;
+      font-size: 40px;
+      }
+      button{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 40px;
+      }
+      {% block style %}
+      {% endblock %}
+    </style>
+
+  </head>
+
+
+
+
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">
+            SU Room Reservations
+          </li>
+
+          {% if session.username and not session.admin %}
+          <li class = "abc">
+            <a href="/">Home</a>
+          </li>
+          {% endif %}
+          {% if session.admin %}
+          <li class = "abc">
+            <a href="/roomSched">Home</a>
+          </li>
+          {% endif %}
+          <li class = "abc">
+            <a href="/archive/">Archive</a>
+          </li>
+          {% if session.username and not session.admin %}
+          <li class="abc">
+            <a href="/roomSched/">Room Schedule</a>
+          </li>
+          <li class="abc">
+            <a href="/myRooms/">My Rooms</a>
+          </li>
+	  {% if session.master %}
+          <li class="abc">
+            <a href="/blockRooms/">Blocked Rooms</a>
+          </li>
+	  {% endif %}
+         <li class="abc">
+            <a href="/seeClubs/">See Clubs</a>
+          </li>
+      {% block head %}
+        {% if session.master %}
+
+           <li class="abc">
+            <a href='/addClub/'>Approve a Club</a>
+	    {% endif %}
+            {% endblock %}
+          </li>
+	  {% endif %}
+
+        </ul>
+      </div>
+
+
+      <div class="top-bar-right">
+	<ul class="dropdown menu" data-dropdown-menu>
+	  {% if session.username %}
+          <li class="abc">
+            <a href = "/settings/"> Settings </a>
+          </li>
+          <li class = "abc">
+            <a href="/logout/"> Log Out </a>
+          </li>
+	  {% endif %}
+
+      </div>
+      </ul>
+    </div>
+
+    {% block body %}
+    {% endblock %}
+  </body>
+
+  {% block bottom %}
+
+  {% endblock %}
+
+
+</html>

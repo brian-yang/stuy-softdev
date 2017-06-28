@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+    margin-left: 5%;
+    font-family: "Consolas", sans-serif;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+    padding-top: 10px;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+h2, h3 {
+    text-transform: uppercase;
+}
+
+p {
+    color: brown;
+    text-decoration: underline;
+    font-size: 2em;
+    font-family: "Roboto", sans-serif;
+    padding-left: 10px;
+}
+
+ul {
+    color: gray;
+    text-align: center;
+    position: relative;
+    font-size: 2em;
+    margin-bottom: auto;
+}
+
+a {
+    line-height: 2;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Courier", sans-serif;
+}
+
+a:link {
+    color: green;
+}
+/* ====================================== */
+/* Classes and ids */
+.extreme {
+    width: 50%;
+    margin: 0 auto;
+    border-style: dotted;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#head1 {
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.navzone {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    color: purple;
+    font-family: "monospace", sans-serif;
+}
+
+#tehlulz {
+    text-align: left;
+    text-shadow: 2px 2px gray;
+    border-style: dotted;
+    color: blue;
+    display: inline;
+}
+
+.content {
+    border-style: double;
+    border-radius: 3px;
+    border-color: green;
+    width: 85%;
+    color: black;
+}
+
+.prose {
+    padding: 0 10px;
+    text-indent: 2px;
+    letter-spacing: 2px;
+    display: block;
+    margin: 5px;
+}

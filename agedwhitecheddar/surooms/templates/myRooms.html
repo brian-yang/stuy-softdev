@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block body %}
+<center>
+  {% with message = get_flashed_messages() %}
+  {% if message %}
+  <p style="font-size:15px;">{{ message[0] }}</p>
+  {% endif %}
+  {% endwith %}
+</center>
+<form action="/unreserve/" method="POST">
+  <table>
+    <thead>
+      <tr>
+	<th width="100">Room Number</th>
+	<th width="100">Date</th>
+	<th width="100"> Unreserve</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- {% for entry in message2 %} -->
+      <!-- <tr id="{{entry[0]}}/{{user}}"> -->
+      <!-- 	<td> {{entry[0]}} </td> -->
+      <!-- 	<td> {{entry[2]}}/{{entry[3]}}/{{entry[4]}} </td> -->
+      <!--   <td> <center> <i>Club meeting date passed.</i> </center></td> -->
+      <!-- </tr> -->
+      <!-- {% endfor %} -->
+
+      {% for entry in message %}
+      <tr id="{{entry[0]}}/{{user}}">
+  	<td> {{entry[0]}} </td>
+  	<td> {{entry[2]}}/{{entry[3]}}/{{entry[4]}} </td>
+        <td>
+	  <center>
+	    <button type="submit" name="room" value="{{entry[0]}}/{{entry[2]}}/{{entry[3]}}/{{entry[4]}}" class="alert button">Unreserve
+	    </button>
+	  </center>
+	</td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+</form>
+{% endblock %}

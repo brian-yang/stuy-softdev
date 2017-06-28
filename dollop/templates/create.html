@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<link rel="stylesheet" media="screen" href="/static/bootstrap.min.css">
+	<script>
+	  function isNotEmpty() {
+	  var title = document.forms["new_story"]["title"].value;
+	  var story = document.forms["new_story"]["story"].value;
+	  if (title == null || title == "" || story == null || story == "") {
+          alert("Please enter a title and begin the story!");
+          return false;
+	  }
+	  }
+	</script>
+  </head>
+
+  <body>
+  	<!--NAV BAR-->
+  	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/">STORYTeller</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="/">Home<span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="/new/">Add Stories</a></li>
+	        <li><a href="/browse/">Browse Stories</a></li>
+	      </ul>
+
+	      <form class="nav navbar-nav navbar-right">
+	        <li><a href = "/logout/">Logout</a></li>
+	      </form>
+
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<!--NAV BAR-->
+
+	<center>
+		<h1>Express Yourself.</h1>
+		<p>Start your own story. Be the ultimate DIY-er</p>
+		<div id="create_div1" style="width: 400px; height: 300px; box-sizing: border-box; border:1px; border-style: solid; border-color: solid black;">
+			<form name="new_story" action="/new/" method="POST" onsubmit="return isNotEmpty()">
+				  <h2>Title: </h2>
+				  <input id="create_text1" type="text" name="title">
+				  <br>
+				  <h2>Initial Storyline: </h2>
+				  <br>
+				  <textarea id="create_textarea1" name="story">
+				  </textarea>
+				  <br>
+				  <input type="submit" name="submit" value="submit">
+			</form>
+		</div>
+	</center>
+  <body>
+</html>

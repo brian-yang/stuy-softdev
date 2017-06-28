@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+
+<table>
+  <thead>
+    <tr>
+      <th width="100">Room Number</th>
+      <th width="100">Club Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entry in message %}
+    <tr> 
+      <td> {{entry[0]}} </td>
+      <td> {{entry[1]}} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

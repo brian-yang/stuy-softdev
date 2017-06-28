@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+<title> homepage </title>
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+</head>
+
+<body background="url_for('static', filename='bg.jpeg')">
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">STORYTeller</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+          <li><a href="/new/">Add Stories</a></li>
+          <li><a href="/browse/">Browse Stories</a></li>
+        </ul>
+
+        <form class="nav navbar-nav navbar-right">
+          <li><a href = "/logout/">Logout</a></li>
+        </form>
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <center>
+    <!--POST -->
+    <!--KEY = TITLE, VALUE = BASE CONTENT-->
+    <!-- {# for key, value in stories.iteritems() #} -->
+    <!-- <h1 id"main_h01">{{key}} </h1> -->
+    <!-- <br> -->
+    <!-- <p id="main_p01">{{value}}</p> -->
+    <!-- <br><br><br><br> -->
+    <h2>HELLO, {{user}}!</h2>
+     <p>To read any of the stories you have contributed to, select the story from the dropdown menu.</p>
+    <!-- dropdown for stories -->
+    <form action="/read/" method="POST" id="browse_form1">
+      <!-- <select name="select_read">
+        {% for sid, story_info in story %}
+          <option value={{sid}}> {{sid}} </option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Read"> -->
+      <!-- Split button -->
+      
+      <!-- Split button -->
+    <select class="selectpicker" name="select_read">
+      <optgroup label="Contributed stories">
+        {% for sid, story_info in story %}
+          <option value={{sid}}> {{sid}} </option>
+        {% endfor %}
+      </optgroup>
+    </select>
+    <input type="submit" value="Read">
+    </form>
+	<!-- {% for sid, story_info in story %}
+      <h2 style="font-size=150%">{{sid}}</h2>
+      <br>
+      Title: {{story_info[0]}}
+      <br>
+      Creator: {{story_info[1]}}
+      <br>
+      Original story: {{story_info[2]}}
+      {% endfor %} -->
+    <!-- {# endfor #} -->
+  </center>
+</body>

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user_type == 0 %}
+
+{% if issub == False %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- {{ description }} -->
+      <h2>Submit your assignment</h2>
+      <form action="/class/" method="POST">
+	<label class="col-md-12" for="myTextarea">Copy and paste your assignment below...</label>
+	<textarea class="form-control" id="myTextarea" name="submission" rows="20" placeholder="Your words here."></textarea>
+	<input type="hidden" name="task_id" value="{{ task_id }}">
+	<br>
+	<input type="submit" class="btn btn-primary btn-block" name="submit" value="submit">
+	<hr>
+	<p>
+	  <span id="word_count" class="badge alert-danger">0</span> words&emsp;
+	  <span id="char_count" class="badge alert-danger">0</span> characters
+	</p>
+      </form>
+    </div>
+
+
+  </div>
+</div>
+{% else %}
+<div class="container">
+  <div class="row">
+    <form action="/class/" method="POST">
+      <input type="submit" class="btn" value="<< Return to class {{class_name}}" style="color: black"><br/>
+      <input type="hidden" name="class" class="btn" value="{{class_name}}"><br/>
+    </form>
+    <div class="col-md-12">
+      <h1 class="display-4 text-center">YOUR SUBMISSION:</h1>
+      <div class="panel panel-default">
+	<div class="panel-body" style="background-color: grey">
+	  Grade: {{ grade }} <br/> <br/>
+	  Submitted: <br/>
+	  {{ entry[0] }}<br/>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+{% else %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="/class/" method="POST">
+	<input type="submit" class="btn" value="<< Return to class {{class_name}}" style="color: black"><br/>
+	<input type="hidden" name="class" class="btn" value="{{class_name}}"><br/>
+      </form>
+      <h1 class="display-4">Student Submissions:</h1>
+      {% for key in sub %}
+      <div class="panel panel-info">
+	<div class="panel-heading">
+	  <h3 class="panel-title">{{key}}</h3>
+	</div>
+	<div class="panel-body" style="color: black">
+	  {{sub[key]}} <hr/>
+
+
+	  <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
+	    Grade
+	  </button>
+
+	  <!-- Modal -->
+	  <form action="/assignment/" method="POST">
+	    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	      <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		    <h4 class="modal-title" id="myModalLabel">Grade</h4>
+		  </div>
+		  <div class="modal-body">
+		    Grade (out of 100): <input class="form-control" type="number" name="grade" min="0" max="100">
+		  </div>
+		  <div class="modal-footer">
+		    <input type="hidden" name="assignment" value="{{ task_id }}">
+		    <input type="hidden" name="class" class="btn" value="{{class_name}}"><br/>
+		    <input type="hidden" name="student_name" value="{{ key }}">
+		    <input type="submit" value="input" class="btn btn-success">
+		    <input type="button" class="btn btn-default" data-dismiss="modal" value="Close"> <br/>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	  </form>
+	</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block script %}
+<script src="../static/js/jquery-3.1.1.min.js"></script>
+<script src="../static/js/charcount.js"></script>
+{% endblock %}

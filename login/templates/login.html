@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <form action="/authenticate/" method="POST">
+      Username: <input type="text" name="username"/> <br/>
+      Password: <input type="password" name="password"/> <br/>
+      <br/>
+
+      <!-- LOGIN -->
+      <input type="submit" name="login" value="Login"/>
+      <!-- REGISTER -->
+      <input type="submit" name="register" value="Register"/>
+      <br/>
+
+      {{ registered }}
+
+    </form>
+  </body>
+</html>

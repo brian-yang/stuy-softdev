@@ -1,0 +1,42 @@
+{% extends "map3.html" %}
+
+{% block roomblock %}
+<h6> Click A Room to Block It! </h6>
+<div id="roomButtons"> <form id="whichRoomBlock" method="get">
+    <button type="submit" name="room" value="303" class="success button">303</button>
+    <button type="submit" name="room" value="305" class="success button">305</button>
+    <button type="submit" name="room" value="313" class="success button">313</button>
+    <button type="submit" name="room" value="315" class="success button">315</button>
+    <button type="submit" name="room" value="325" class="success button">325</button>
+    <button type="submit" name="room" value="327" class="success button">327</button>
+    <button type="submit" name="room" value="329" class="success button">329</button>
+    <button type="submit" name="room" value="331" class="success button">331</button>
+    <button type="submit" name="room" value="333" class="success button">333</button>
+    <button type="submit" name="room" value="335" class="success button">335</button>
+    <button type="submit" name="room" value="339" class="success button">339</button>
+    <button type="submit" name="room" value="351" class="success button">351</button>
+</div> </form>
+</center>
+<br>
+{% endblock %}
+
+
+
+{% block script_block %}
+
+<script>
+  whichRoomBlock = document.getElementById("whichRoomBlock");
+  var linkA = window.location['href']
+  //console.log(link);
+
+  var appleA = linkA.split("/")
+  //console.log(apple);
+  var dateA = appleA[appleA.length-2];
+
+
+  var actionLinkA =  "/block/" + dateA + "/"
+  whichRoomBlock.setAttribute("action", actionLinkA);
+  //console.log(actionLink);
+</script>
+
+{% endblock %}

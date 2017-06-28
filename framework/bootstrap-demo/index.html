@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap Demo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="custom/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	    <span class="sr-only">Toggle navigation</span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Bootstrap Demo</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+	    <li class="active"><a href="#">Home</a></li>
+	    <li><a href="#about">About</a></li>
+	    <li><a href="#contact">Get Bootstrap</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid content">
+
+      <div class="jumbotron jumbo">
+	<h1>The Jumbotron</h1>
+	<p>
+	  Lightweight, flexible component for featured content.<br/><br/>
+	  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+	</p>
+      </div>
+
+      <hr>
+
+      <h1>Columns</h1><br/>
+      <div class="row">
+	<div class="col-xs-12 col-md-8" id="columns">.col-xs-12 .col-md-8</div>
+	<div class="col-xs-6 col-md-4" id="columns">.col-xs-6 .col-md-4</div>
+      </div>
+      <div class="row">
+	<div class="col-xs-12 col-md-7" id="columns">.col-xs-12 .col-md-7</div>
+	<div class="col-xs-6 col-md-5" id="columns">.col-xs-6 .col-md-5</div>
+      </div>
+      <div class="row">
+	<div class="col-xs-12 col-md-3" id="columns">.col-xs-12 .col-md-3</div>
+	<div class="col-xs-6 col-md-9" id="columns">.col-xs-6 .col-md-9</div>
+      </div>
+      <br/>
+
+      <hr>
+
+      <h1>Forms</h1>
+      <form>
+	<div class="form-group">
+	  <label for="username">Username</label>
+	  <input type="text" class="form-control" id="username" placeholder="Username">
+	</div>
+	<div class="form-group">
+	  <label for="password">Password</label>
+	  <input type="password" class="form-control" id="password" placeholder="Password">
+	</div>
+	<div class="checkbox">
+	  <label>
+	    <input type="checkbox"> Check me!
+	  </label>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <hr>
+
+      <h1>Tables</h1>
+      <table class="table table-bordered table-hover">
+	<tr>
+	  <th>#</th>
+	  <th>Table columns</th>
+	</tr>
+	<tr>
+	  <td>1</td>
+	  <td class="active">Active</td>
+	</tr>
+	<tr>
+	  <td>3</td>
+	  <td class="warning">Warning</td>
+	</tr>
+	<tr>
+	  <td>3</td>
+	  <td>Default</td>
+	</tr>
+	<tr>
+	  <td>4</td>
+	  <td class="info">Info</td>
+	</tr>
+	<tr>
+	  <td>5</td>
+	  <td class="success">Success</td>
+	</tr>
+      </table>
+
+      <hr>
+
+      <h1>Buttons</h1>
+      <button type="button" class="btn btn-default">Default</button>
+      Standard button
+      <br/><br/>
+
+      <button type="button" class="btn btn-primary">Primary</button>
+      Provides extra visual weight and identifies the primary action in a set of buttons
+      <br/><br/>
+
+      <button type="button" class="btn btn-success">Success</button>
+      Indicates a successful or positive action
+      <br/><br/>
+
+      <button type="button" class="btn btn-info">Info</button>
+      Contextual button for informational alert messages
+      <br/><br/>
+
+      <button type="button" class="btn btn-warning">Warning</button>
+      Indicates caution should be taken with this action
+      <br/><br/>
+
+      <button type="button" class="btn btn-danger">Danger</button>
+      Indicates a dangerous or potentially negative action
+      <br/><br/>
+
+      <button type="button" class="btn btn-link">Link</button>
+      Deemphasize a button by making it look like a link while maintaining button behavior
+
+      <hr>
+
+      <h1>Responsive Image</h1><br/>
+      <img src="custom/up.jpg" class="img-fluid" alt="Responsive image">
+
+
+    </div>
+
+    <br>
+
+    <footer class="footer">
+      <h1>Footer</h1>
+      <br/>
+      <p>&nbsp;&copy; Brian Yang and Shaeq Ahmed</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+	 ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+</html>

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style type="text/css">
+	.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+   body {
+  background-image: url(../static/css/chalk.jpg); 
+    background-position: center center;
+      background-repeat:  no-repeat;
+      background-attachment: fixed;
+      background-size:  cover;
+}
+</style>
+ {% endblock %}
+
+{% block active1 %}class="active"{% endblock %}
+
+{% block content %}
+		{% with messages = get_flashed_messages() %}
+	      {% if messages %}
+	        {% for message in messages %}
+	          {{ message }}
+	        {% endfor %}
+	      {% endif %}
+	    {% endwith %}
+	    <div class="container">
+	    <center>
+	    <div style="color: white; min-width: 314px;" class="col-md-6">
+			<h1 class="display-4">LOGIN:</h1>
+			<p><i>If you have an account, please login.</i></p>
+			<form action="/auth/" method="POST">
+
+				Username: <input class="form-control" type="text" name="username"> <br>
+				Password:&thinsp; <input class="form-control" type="password" name="password"> <br>
+				<input class="btn btn-success btn-block" type="submit" name="button" value="login" action="login">
+			</form>
+		</div>
+		<!--Register-->
+		<div style="color: white;min-width:314px;" class="col-md-6">
+			<h1 class="display-4">REGISTER:</h1>
+			<p><i>If you want an account, please register:</i></p>
+			<form action="/auth/" method="POST">
+
+				Username: <input class="form-control" type="text" name="username"> <br>
+				Password: <input class="form-control" type="password" name="password"> <br>
+				Confirm password: <input class="form-control" type="password" name="confirm_password"> <br>
+				I'm a...<br>
+				<input type="radio" name="type" value="1">Teacher<br>
+				<input type="radio" name="type" value="0" checked> Student<br><br>
+				<input class="btn btn-success btn-block" type="submit" name="button" value="register" action="register">
+			</form>
+		</div>
+		</center>
+		</div>
+{% endblock %}
+

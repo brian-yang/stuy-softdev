@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		{% for message in messages %}
+		  {{ message }}
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+	<br>
+Change your password:
+<form action="/changepass/" method="POST">
+	Old password: <input type="password" name="oldpass"> <br>
+	New password: <input type="password" name="newpass"> <br>
+	Confirm password: <input type="password" name="confirmpass"> <br>
+	<input type="submit" name="change" value="change">
+</form>
+</center>
+{% endblock %}

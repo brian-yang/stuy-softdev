@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block style %}
+label {
+font-size:16px;
+}
+{% endblock %}
+
+
+{% block body %}
+
+
+<br>
+<center>
+  <h5> Change Password </h5>
+</center>
+
+<div class="callout">
+  <form action="/change/" method="POST">
+    <div class="row">
+      <label> <center> Old Password
+          <input type="password" name="oldpass" required>
+          <center> </label>
+    </div>
+    <div class="row">
+      <label> <center> New Password
+          <input type="password" name="newpass" required>
+          <center> </label>
+    </div>
+    <div class="row">
+      <label> <center> Confirm New Password
+          <input type="password" name="confpass" required>
+          <center> </label>
+    </div>
+    <center>
+      <button type="submit" name="enter" class="button" value="add">Submit</button>
+    </center>
+  </form>
+</div>
+
+
+{% endblock %}

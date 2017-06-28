@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>U.S. Workforce</title>
+  </head>
+  <body>
+    <h1> Composition of jobs in the U.S. </h1>
+    <table border=1>
+      {% for job in jobList %}
+      <tr>
+	<td>
+	  {{ job[0] }}
+	</td>
+	<td>
+	  {{ job[1] }}
+      </tr>
+      {% endfor %}
+    </table>
+    <br/>
+    <br/>
+    Random Job: {{ aJob[0] }} <br/>
+    Job link: <a href= {{ aJob[1] }} >{{ aJob[1] }}</a>
+  </body>
+</html>
+

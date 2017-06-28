@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block body %}
+<center>
+  {% with message = get_flashed_messages() %}
+  {% if message %}
+  <p style="font-size:15px;">{{ message[0] }}</p>
+  {% endif %}
+  {% endwith %}
+</center>
+
+<form class="form-signin" action="/archive/" method="post" role="form">
+  <center> <h2 class="form-signin-heading">Type in a Year</h2> </center>
+  <input style="width: 50%; margin: auto;" type="text" name="year" class="form-control" placeholder="Year" required autofocus>
+
+  <center><button type="submit" name="enter" class="button"  id = "year">Submit </button></center>
+</form>
+
+
+<table>
+  <thead>
+    <tr>
+      <th width="100">Month</th>
+      <th width="100">Day</th>
+      <th width="100"> Room</th>
+      <th width="100"> Club</th>
+    </tr>
+  </thead>
+  <tbody id = "table-body">
+    {% for Mentry in message %}
+    {% for entry in message[Mentry] %}
+    <tr id="{{Mentry}}">
+      <td> {{Mentry}} </td>
+      <td> {{entry[3]}} </td>
+      <td> {{entry[0]}} </td>
+      <td> {{entry[1]}} </td>
+    </tr>
+    {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+{% endblock %}

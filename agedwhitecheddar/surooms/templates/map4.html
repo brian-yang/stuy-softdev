@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block head1 %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+
+{% endblock %}
+
+
+
+{% block body %}
+<br>
+<center>
+  <svg id="vimage" height="350" width="850" style="border:1px solid;" xmlns="http://www.w3.org/2000/svg"> </svg>
+</center>
+
+
+<center>
+  <br>
+  <h6> Click A Room to Reserve It! </h6>
+  <div id="roomButtons"> <form  id="whichRoom" method="get">
+    {% if session.username and not session.master %}
+    <div class="rooms1">
+      {% endif %}
+      <button type="submit" name="room" value="403" class="success button">403</button>
+      <button type="submit" name="room" value="404" class="success button">404</button>
+      <button type="submit" name="room" value="405" class="success button">405</button>
+      <button type="submit" name="room" value="407" class="success button">407</button>
+      <button type="submit" name="room" value="411" class="success button">411</button>
+      <button type="submit" name="room" value="413" class="success button">413</button>
+      <button type="submit" name="room" value="427" class="success button">427</button>
+      <button type="submit" name="room" value="429" class="success button">429</button>
+      <button type="submit" name="room" value="431" class="success button">431</button>
+      <button type="submit" name="room" value="433" class="success button">433</button>
+      <button type="submit" name="room" value="435" class="success button">435</button>
+      <button type="submit" name="room" value="437" class="success button">437</button>
+      <button type="submit" name="room" value="439" class="success button">439</button>
+      <button type="submit" name="room" value="439" class="success button">439</button>
+      <button type="submit" name="room" value="440" class="success button">440</button>
+      <button type="submit" name="room" value="451" class="success button">451</button>
+      <button type="submit" name="room" value="453" class="success button">453</button>
+     {% if session.username and not session.master %}
+      </div>
+        {% endif %}
+  </div> </form>
+  {% block roomblock %}
+  {% endblock %}
+</center>
+<br>
+{% endblock %}
+
+
+
+{% block bottom %}
+
+<script type="text/javascript" src="/static/js/map4.js"></script>
+{% block script_block %}
+{% endblock %}
+
+{% endblock %}

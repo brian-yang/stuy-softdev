@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block head1 %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+
+{% endblock %}
+
+
+
+{% block body %}
+<br>
+<center>
+  <svg id="vimage" height="350" width="850" style="border:1px solid;" xmlns="http://www.w3.org/2000/svg"> </svg>
+</center>
+
+
+<center>
+  <br>
+  <h6> Click A Room to Reserve It! </h6>
+  <div id="roomButtons"> <form id="whichRoom" method="get">
+{% if session.username and not session.master %}
+  <div class="rooms1">
+   {% endif %}
+      <button type="submit" name="room" value="229" class="success button">229</button>
+      <button type="submit" name="room" value="231" class="success button">231</button>
+      <button type="submit" name="room" value="233" class="success button">233</button>
+      <button type="submit" name="room" value="235" class="success button">235</button>
+      <button type="submit" name="room" value="237" class="success button">237</button>
+      <button type="submit" name="room" value="251" class="success button">251</button>
+{% if session.username and not session.master %}
+
+  </div>
+ {% endif %}
+  </div> </form>
+  {% block roomblock %}
+  {% endblock %}
+</center>
+<br>
+{% endblock %}
+
+
+
+{% block bottom %}
+
+<script type="text/javascript" src="/static/js/map2.js"></script>
+{% block script_block %}
+{% endblock %}
+
+{% endblock %}

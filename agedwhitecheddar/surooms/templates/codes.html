@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block style %}
+label {
+font-size:16px;
+}
+{% endblock %}
+
+
+{% block body %}
+
+
+<br>
+<center>
+  {% with message = get_flashed_messages() %}
+  {% if message %}
+  <p style="font-size:15px;">{{ message[0] }}</p>
+  {% endif %}
+  {% endwith %}
+  <h5> Add a Club </h5>
+</center>
+
+<div class="callout">
+  <form action="/approve/" method="POST">
+    <div class="row">
+      <label> <center> Club Email
+          <input type="email" name="clubEmail" placeholder="Enter club email..." required>
+          <center> </label>
+    </div>
+    <div class="row">
+      <br>
+      <label><center> Choose an Admin Level</label><br><br>
+
+      <input type="radio" name="admin_level" value="0" id="x"><label for="x">0 (for students and clubs)</label>
+      <input type="radio" name="admin_level" value="1" id="y"><label for="y">1 (for teachers the regular administration)</label> 
+      <br> <input type="radio" name="admin_level" value="2" id="y"><label for="y">2 (For SU Administrators)</label>  
+      </center>
+    </div>
+    <center>
+      <button type="submit" name="enter" class="button" value="add">Add</button>
+    </center>
+  </form>
+</div>
+
+
+{% endblock %}

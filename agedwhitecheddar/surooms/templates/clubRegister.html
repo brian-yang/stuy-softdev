@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body %}
+<br>
+<center> <h4> Club Information </h4>
+  <h6> To complete signup, please fill out the form below.  </h6>
+</center>
+
+<div class="callout">
+  <form action="/clubInfo/" method="POST">
+    <div class="row">
+      <label>Club Name
+	<input type="text" name="clubName" placeholder="Enter club name..." required>
+      </label>
+    </div>
+
+    <div class="row">
+      <label>Advisor Name
+	<input type="text" name="adName" placeholder="Enter advisor name..." required>
+      </label>
+    </div>
+
+    <div class="row">
+      <label>Advisor Email
+	<input type="email" name="adEmail" placeholder="Enter advisor's email..." required>
+      </label>
+    </div>
+    <center>
+      <button type="submit" name="enter" class="button" id="clubRegister">Register</button>
+    </center>
+  </form>
+</div>
+
+{% endblock %}
