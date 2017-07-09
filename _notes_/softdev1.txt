@@ -1,0 +1,316 @@
+Software Development
+=====================
+url binding is the art of redirection
+
+
+Sessions
+
+session object works exactly like a dictionary
+add data to a session:
+    session[key] = data
+remove data from a session:
+    session.pop(key)
+
+APP.secret_key = <RANDOM STRING>
+
+good way to get random data: os.urandom(32)
+
+returns 32 random bytes of data as a string
+
+EXAMPLE:
+from flask import session
+app.secret_key = key
+
+url_for(function_name), returns the route
+   Flask function that will build the correct url for a particular function
+
+redirect
+   Flask function that will redirect a call to one route to a different response
+   Often used in combination with url_for
+
+   Example
+      return redirect(url_for('login'))
+=========================================
+10/11
+
+url_for doesn't take message arguments unless the function that is being
+pointed to takes arguments
+
+sessions are different between browsers because each browser stores different cookies
+=========================================
+10/13
+
+Aim: All your data belong to us.
+
+Relational database:
+	   Database that stores information as a collection of tables.
+
+	   Field: Column data in a RDB
+
+	   Record: Row in a RDB
+
+	   Data can be linked between tables based on field values.
+
+	   students table
+	   name	    |	sid
+	   ================	    
+	   amy	    |	0
+	   reo	    |	1	
+	   emma	    |	2
+	   elina    |	3
+
+	   class table
+	   name	    |	sid
+	   ================	    
+	   amy	    |	0
+	   reo	    |	1	
+	   emma	    |	2
+	   elina    |	3
+
+* SQL (Structured Query Language)
+
+    Standard language designed to work with relational databases.
+
+    Is used for many major db programs, though the implementations
+    may not (mostly are not) compatible.
+
+    MySQL, PostgreSQL, SQLite, Oracale are different SQL
+    implementations.
+
+* SQLite
+
+    SQL implementation that relies entirely on function calls
+    in the parent program. There is no database server.
+    
+    All database information is stored in a single file.
+
+    Data is dynamically typed as values are inserted into a table.
+
+
+* Basic SQLite operations
+    CREATE TABLE
+         Add a table to a database
+
+	 CREATE TABLE <name> (<column name> <data type>, ...)
+
+	       The data type will help to convert entered values to a suggested type.
+
+	       TEXT, INTEGER, REAL, NUMERIC, BLOB
+	            
+	             NUMERIC will default to an integer, but can be a floating point.
+		     
+		     BLOB - no suggested type
+		     
+    INSERT INTO
+          Insert a record into a table.
+	  
+	  INSERT INTO <name> values ( <field1>, <field2> ... )
+
+	  NULL can be used in any entry
+
+	  MUST be in order
+
+    SELECT * FROM <name>:
+          Show all entries in a table
+* Use
+$ sqlite3 school.db (file extension not required)
+ALWAYS HAVE SEMICOLONS AT THE END OF A SQL STATEMENT
+
+Columns can be given a PRIMARY KEY attribute, denoting that every entry in that column is unique
+and cannot be NULL.
+
+Columns can be given a NOT NULL attribute, denoting that no entry can be NULL.
+ 
+* Shell Commands
+
+.quit
+.tables
+.header on|off
+.mode column|html|csv|list|insert|line|tabs
+============================================
+10/17
+Aim: sqlite, the low-fat alternative to SQL
+
+python sqlite module
+       import sqlite3
+
+       connect
+		open/create an sqlite database.
+		
+ 		if db does not exist, create it.
+		
+      		db = sqlite3.connect(<db name>)
+
+       cursor
+		create a database cursor object that will allow
+		you to perform operations of the database.
+
+		c = db.cursor()
+
+        execute
+		cursor method to perform the provided sql operation, given as a string.
+
+		c.execute(<SQL statement>)
+
+	commit
+		Database method to save changes to the db
+
+		db.commit()
+
+	db.close()
+	
+python profip format strings:
+       '(' + x + ', ' + y + ') is a point'
+       '(%d, %d) is a point'%(x, y)
+
+       'INSERT INTO students VALUES ("%s", %s, %s)'%(...)
+       - Need to have quotes around first %s so that it's not
+       interpreted as a field name
+
+       .db extension is not required
+
+SQL SELECT statement
+
+    Used to get data from a databse.
+
+    Creates a results table based on the query.
+
+    SELECT <column 1>, ... FROM <table>, ...;
+
+    	   Will return a new table containing only the requested columns from the requested tables.
+
+	   SELECT name FROM students;
+	   // will display tables in order
+	   SELECT age, name from students;
+	   SELECT name. age from students;
+
+	   SELECT name, id, code FROM students, courses;
+	   for every name in students, print every course in courses
+
+	   If tables have duplicate column names, you can use
+	   <tablename>.<columnname> to distinguish between
+	   columns in different tables.
+=====================================
+10/18
+Aim: WHERE did I put that data?
+
+SELECT name, courses.id, mark FROm students, courses;
+
+WHERE
+
+	Allows you to put restrictions on the results of a SELECT statement.
+	SELECT * from courses WHERE mark < 65;
+
+	SELECT name, students.id, courses.id, code, mark FROM students,courses WHERE students.id = courses.id;
+
+	Boolean operators like and/or are allowed
+
+cur.execute("select *")
+returns a cursor object which you can iterate through using for
+sel = cur.execute(cmd)
+for record in sel:
+    print record
+=====================================
+10/19
+
+Aim: Extending your template knowledge.
+
+Do now: write a flask app with a single route and a single html template
+
+extending html templates
+
+	  any template can be "inherited" by others
+
+	  {% extends "<TEMPLATE>" %}
+
+define sections to override inside
+
+{% block NAME %} {% endblock %}
+
+=====================================
+11/15
+Cascading Style Sheets (CSS)
+
+	  Created to separate the presentation of an html/xml page and its content.
+
+	  Basic syntax:
+	  	PROPERTY: VALUE;
+
+		color: lightsteelblue;
+		text-align: center;
+		border: 10px;
+
+There are 3 ways to incorporate CSS into a page;
+inline, internal style sheet, external style sheet.
+No space between value and unit.
+
+Inline CSS
+
+       Add CSS code to the style attribute of a tag
+
+       <TAG style="CSS CODE">
+
+       <p style="color: green; font-size: 2em"> ... </p>
+
+em - unit of measurement for standard text size for browser
+1em = 100% of standard text size
+
+======================================================
+12/16
+Internal Style Sheet
+
+	 Add a <style> element to the <head> section of the page.
+	 Include all your CSS code inside the <style> ... </style> block.
+
+	 Internal and External style sheets require the addition of a selector
+	 so that it is clear what element you are styling.
+
+	 Should be in head because that loads first
+
+	 SELECTOR {
+	 	CSS CODE
+	 }
+
+	 h1 {
+	    color: #FF00FF; // hex always works
+	 }
+
+External Style Sheets
+	 Create a separate .css file that contains all your CSS code.
+	 It cannot contain any other kind of code, including html or xml.
+
+	 Include a link to the css file inside the <head> section of your page.
+
+	 <head>
+		<link rel="stylesheet" type="text/css" href="STYLE FILE">
+		...
+	 </head>
+
+Styles will generally be inherited by elements inside other elements.
+
+       body {
+       	    color: green;
+       }
+
+       h1 {
+       	  position: fixed; // will be in the same spot
+	  top: 10px;
+	  }
+
+	  h1 elements will be green
+
+======================================================
+id attributes
+   All html elements can have an id attribute. It is an identifier that should only be applied to a single element.
+
+   <div id="main_content">...</div>
+   id names can be used in <a> tags as the href target
+
+      <a href="#main_content">...</a>
+
+
+   ids can be used as selectors by putting a # before the id name
+
+       #main_content {
+               border: 2px solid goldenrod;
+	       }

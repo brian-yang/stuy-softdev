@@ -1,0 +1,86 @@
+aim: lists, comprendo?
+
+List Comprehensions
+
+     Programming construct for building lists out of existing lists
+
+     Basic syntax
+
+     	   [ <value> for <var> in <list> ]
+
+     Conditional comprehensions
+
+     	   [ <value> for <var> in <list> if <condition> ]
+
+	   [ i * i if i % 2 == 0 else 0 for i in range(1, 10) ]
+
+
+Let's get some closure (not Clojure).
+
+Closures
+
+	1. A function is declared inside another function.
+	2. The inner function accesses a variable from the outer function
+	   (outside of the local scope of the inner function)
+	3. The external function binds a value to the variable and finishes (or closes) before the inner function can be completed.
+
+	def repeat( s ):
+	    def times( x );
+	    	return s * x
+		
+	    return times
+
+def repeat2(s):
+    return lambda x: s * x
+
+def heading(f):
+    def inner():
+    	return '<h1>' + str(f()) + '</h1>'
+
+import random
+@heading
+def greet():
+    ...
+
+def quicksort(l):
+    if len(l) <= 1:
+       return l
+    pivot = random.choice(l)
+    lower = [ a for a in l if a < pivot ]
+    upper = [a for a in l if a > pivot]
+
+    return quicksort(lower) + ([pivot] * l.count(pivot)) + quicksort(upper)
+================================================
+memoization
+	- Reducing the time it takes to complete an (often recursive)
+	algorithm by saving previously computed values to be used later
+	
+	- Can be created using decorators
+
+map/filter/reduce
+	list processing
+
+reduce
+	- Takes a list and returns a value based on the list
+	(reducing the list to a single value)
+
+	- reduce(<FUNCTION>, <LIST>)
+	The function argument must take 2 parameters
+
+def add(a, b):
+    return a + b
+
+def times(a, b):
+    return a * b
+
+map
+	Create a new list by applying a function to all elements of an existing list
+
+	map(<FUNCTION>, <LIST>)
+
+filter
+	create a new list by applying a boolean condition to all elements of an existing list
+
+	filter(<FUNCTION>, <LIST>)
+
+Hadoop - uses map reduce to do repeated reduction

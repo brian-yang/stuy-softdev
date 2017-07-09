@@ -1,0 +1,151 @@
+11/28
+======================================
+Aim: After being framed, you might need to take a REST
+
+Tips for using frameworks
+    Many files have .min equivalents, which contains the same code without any extra formatting
+
+    jquery is a popular javascript library used in many frameworks.
+
+    The order in which you include javascript files is important.
+
+    Javascript in <head> or at the end of <body>?
+
+    	       Yet another programmer holy war
+
+	       Advantages to head
+
+	       		  scripts will load before the page (will be there as soon as the page renders)
+
+	       Disadvantages to head
+
+	       		     loading scripts will take longer
+
+	       Advantages to end of body
+	       		  page content loads much faster
+
+	       Disadvantages to end of body
+	       		     page might not be responsive when page renders
+
+REST APIs
+
+     API (Application Programming Interface)
+
+     	 A published set of protocols that can be used to have your program interact
+	 with another program/service.
+
+     REST (Representational State Transfer)
+
+     	  APIs that transmit data back after receiving an HTTP[s] request.
+
+	  Returned data can be in various formats, most common are html, xml.
+
+     JSON (javascript object notation)
+
+     	  Standard way of a representating data. Can be easily translated into a Python dictionary.
+
+     Example REST call:
+     	     is a url, could give data back as xml
+====================================================
+Aim: Web crawling pythons
+
+Making and parsing a REST call in python
+
+       urllib2
+
+		Library to handle urls
+		.urlopen
+			u = urllib2.urlopen(<URL>) 
+			Open a url to be read by your program.
+
+			.geturl()
+				Returns the actual url (in case of redirects)
+
+			.info()
+				Returns the http/s header information.
+
+			.read()
+				Returns the contents of the target webpage
+
+json
+	Library to work with JSON data.
+
+	.loads
+		d = json.loads(<STRING>)
+
+		Turns a json object string into a dictionary
+
+	.dumps( <DICTIONARY> )
+
+		Turns a Python dictionary into JSOn
+====================================================
+Aim: Learning to write in script
+
+Javascript
+
+	Programming language originally designed to augment html and be run locally on a web browser.
+
+	No direct relationship with java, though both have similar syntax.
+
+	Dynamically typed - variable types are provided at runtime (like python).
+
+	Most development will be done through a web browser's console.
+
+	Semicolons necessary
+
+	console.log()
+		There is no built-in I/O. console.log() will display a string to the development console.
+
+	c-like syntax
+
+	variable basics
+
+		 var x = 4;
+		 var s = "hello";
+		 var l = [4, 3, 19];
+		 var o = { 'a': 10, 'x': 'hello'};
+
+		 l.length returns length of array
+
+Document Object Model (DOM)
+	 javascript derives most of its utility through being able to interact with html and xml documents.
+
+	 The dom is an api for interacting with html. It provies a structure that we can interact with
+	 and can be manipulated by functions.
+
+	 Pages are represented as trees.
+
+	 Selecting HTML elements.
+	 	   document.getElementByID(<ID>)
+
+		   document.getElementsByTagName(<TAG>)
+
+		   document.getElementsByClassName(<CLASS>)
+==========================================
+12/14/16
+Aim: Functional Code
+
+     Manipulating DOM elements
+
+     	.remove()
+	.innerHTML
+	document.createElement( <HTML TAG NAME> )
+	.appendChild(element)
+	.setAttribute( <NAME>, <VALUE> )
+	.getAttribute( <NAME> )
+	.addEventListener( <EVENT>, <FUNCTION> )
+
+Functions in Javascript!
+	  javascript is functional like Scheme (Racket)!
+	  Functions are first class objects that can be used like any other value.
+
+	  function() creates anonymous functions (like lambda!)
+	  function() { console.log("yo!") };
+
+	  var foo = function() { console.log("yo!") };
+=============================================
+12/15/16
+function(e) {
+	console.log("");
+	e is event listener
+}
